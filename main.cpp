@@ -5,10 +5,30 @@
 
 void ag_array_tests(void) {
 
-	ag_std::array<int, 0> ag_std_no_num;
-	assert(ag_std_no_num.empty());
+	// emtpy checking. 
+	{
+		ag_std::array<int, 0> a;
+		assert(a.empty());
+		ag_std::array<int, 1> b;
+		assert( ! b.empty());
+		ag_std::array<int, 100> c;
+		assert( ! c.empty());
+
+	}
+
+	// size and max_sizes check. 
+	{
+		ag_std::array<int, 0> a;
+		assert(0 == a.size());
+		assert(0 == a.max_size());
+
+		ag_std::array<int, 4> b;
+		assert(4 == b.size());
+		assert(4 == b.max_size());
+	}
 }
 
+	
 
 int main(int argc, char *argv[]) {
 	

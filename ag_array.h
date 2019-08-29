@@ -21,18 +21,18 @@ namespace ag_std
 		const std::size_t m_N = N;
 		
 	public: 
+		constexpr std::size_t size() const noexcept {
+			return m_N;
+		}
+
+		constexpr std::size_t max_size() const noexcept {
+			return m_N;
+		}
+
 		constexpr bool empty() const noexcept {
 			return m_N == 0;
 		}
-			
-
-
-
-
-
-	
 		
-
 
 	};
 } // namespace ag_std
