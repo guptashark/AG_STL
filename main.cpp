@@ -26,6 +26,25 @@ void ag_array_tests(void) {
 		assert(4 == b.size());
 		assert(4 == b.max_size());
 	}
+
+	// at test
+	{
+		ag_std::array<int, 5> a;
+		a.at(3) = 3;
+		a.at(4) = 4;
+		
+		assert(3 == a.at(3));
+		assert(4 == a.at(4));
+		
+		try {
+			int b = a.at(5);
+			(void)b;
+		} catch (const std::out_of_range& e) {
+			(void)e;
+			// TODO: How do we know we got here!?
+		}
+		
+	}
 }
 
 	

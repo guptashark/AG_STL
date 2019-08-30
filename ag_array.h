@@ -1,6 +1,8 @@
 #ifndef AG_ARRAY_H
 #define AG_ARRAY_H
 
+#include <stdexcept>
+
 namespace ag_std
 {
 
@@ -32,7 +34,14 @@ namespace ag_std
 		constexpr bool empty() const noexcept {
 			return m_N == 0;
 		}
-		
+	
+		constexpr T& at(std::size_t pos) {
+			if(pos >= m_N) {
+				throw std::out_of_range("pos > size of array");
+			} else {
+				return m_data[pos];
+			}
+		}
 
 	};
 } // namespace ag_std
