@@ -5,7 +5,10 @@
 
 namespace ag_std
 {
-	
+	template<typename T>
+
+	 vector {
+	}		
 }
 
 #endif
