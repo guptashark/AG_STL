@@ -77,7 +77,7 @@ void ag_array_tests(void) {
 		assert(0 == b_val);
 
 		// T object{a1, a2, a3, ...};	C++11
-		ag_std::array<int, 3> b = {12, 80, 3};
+		ag_std::array<int, 3> b{12, 80, 3};
 		assert(12 == b[0]);
 		assert(80 == b[1]);
 		assert(3 == b[2]);
@@ -120,6 +120,13 @@ void ag_array_tests(void) {
 		a.fill(3);
 		assert(3 == a.front());
 		assert(3 == a.back());
+	}
+
+	// swap testing
+	{
+		std::array<int, 3> a{1, 2, 3};
+		std::array<int, 4> b{4, 5};
+		b.swap(a);
 	}
 }
 

@@ -83,6 +83,15 @@ namespace ag_std
 				m_data[i] = value;
 			}
 		}
+/*
+		constexpr void swap(std::array &other) {
+			for (size_type i = 0; i < m_N; i++) {
+				value_type c(m_data[i]);
+				m_data[i] = other.m_data[i];
+				other.m_data[i] = c;
+			}
+		}
+*/
 
 	};
 } // namespace ag_std
