@@ -29,10 +29,12 @@ namespace ag_std
 		using const_pointer = const value_type*;
 		// TODO: Need to do iterators aliases
 
+		
+	public: 
+		// Data members
 		T m_data[N+1];
 		const std::size_t m_N = N;
 		
-	public: 
 
 		// Element Access	
 		constexpr T& at(std::size_t pos) {
@@ -75,7 +77,12 @@ namespace ag_std
 			return m_N;
 		}
 
-		
+		// Member operations
+		constexpr void fill(const_reference value) {
+			for (size_type i = 0; i < m_N; i++) {
+				m_data[i] = value;
+			}
+		}
 
 	};
 } // namespace ag_std

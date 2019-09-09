@@ -1,9 +1,12 @@
 #include <iostream> 
 #include <cassert>
 
+#include <array>
+
 #include "ag_array.h"
 
 void ag_array_tests(void) {
+	// at test
 	{
 		ag_std::array<int, 5> a;
 		a.at(3) = 3;
@@ -54,6 +57,39 @@ void ag_array_tests(void) {
 		b[29] = 29;
 		assert(29 == b.back());
 	}
+
+	// constructor testing
+	{
+		// T object= {a1, a2, ...};
+		ag_std::array<int, 3> a = {12, 80, 3};
+		assert(12 == a[0]);
+		assert(80 == a[1]);
+		assert(3 == a[2]);
+	
+		int b_val = 0;	
+		try {
+			b_val = a.at(5);
+			(void)b_val;
+		} catch (const std::out_of_range& e) {
+			(void)e;
+			// TODO: How do we know we got here!?
+		}
+		assert(0 == b_val);
+
+		// T object{a1, a2, a3, ...};	C++11
+		ag_std::array<int, 3> b = {12, 80, 3};
+		assert(12 == b[0]);
+		assert(80 == b[1]);
+		assert(3 == b[2]);
+	
+
+			
+		// T object{a1, a2, a3, ...};	C++11
+
+		// T object={.designator=a1, .designator{a2} ...};	C++20
+		// T object{.designator=a1, .designator{a2} ...};	C++20
+		// T object(a1, a2, ...);
+	}
 	// data test
 
 	// emtpy checking. 
@@ -78,7 +114,13 @@ void ag_array_tests(void) {
 		assert(4 == b.max_size());
 	}
 
-	// at test
+	// fill operator testing
+	{
+		ag_std::array<int, 10> a;
+		a.fill(3);
+		assert(3 == a.front());
+		assert(3 == a.back());
+	}
 }
 
 	
